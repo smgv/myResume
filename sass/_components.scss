@@ -1,0 +1,608 @@
+///////////////////////////////
+// HEADER
+.header {
+  &__content {
+    display: flex;
+
+    @include responsive(tab-land) {
+      flex-direction: column;
+    }
+
+    @include responsive(tab-port) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+    }
+  }
+
+  &__img {
+    flex: 30%;
+    margin-right: 6rem;
+    height: 17rem;
+    background-color: $color-black;
+    border-radius: 100%;
+    overflow: hidden;
+
+    @include responsive(tab-land) {
+      margin: 0 auto;
+      width: 21rem;
+      height: 21rem;
+    }
+
+    @include responsive(tab-port) {
+      margin: 0 auto 0rem;
+      width: 18.5rem;
+      height: 18.5rem;
+    }
+
+    @include responsive(phone) {
+      margin: 0 auto 3rem;
+      width: 18rem;
+      height: 18rem;
+    }
+  }
+
+  .myImage {
+    width: 100%;
+    height: 100%;
+    transform: scale(1.01);
+  }
+}
+
+///////////////////////////////
+// Button
+
+.btn {
+  &,
+  &:link,
+  &:active {
+    text-decoration: none;
+    text-transform: uppercase;
+    background-image: linear-gradient(120deg, $pink-dark 0%, $pink 50%, $pink 50%, $pink-dark 100%);
+    background-size: 225%;
+    color: $color-white;
+    padding: 1.2rem 6rem;
+    font-size: 2rem;
+    border-radius: 10rem;
+
+    text-align: center;
+    cursor: pointer;
+    border: none;
+
+    transition: all 0.2s;
+
+    @include responsive(tab-land) {
+      font-size: 2.3rem;
+    }
+
+    @include responsive(phone) {
+      font-size: 2rem;
+    }
+  }
+
+  &:hover {
+    background-position: 100%;
+    color: $color-white;
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 3rem rgba($color-black, 0.2);
+  }
+
+  &:active {
+    outline: none;
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+}
+
+///////////////////////////////
+// ABOUT ME SECTION
+
+.about-data {
+  display: flex;
+
+  @include responsive(tab-port) {
+    flex-direction: column;
+  }
+
+  &__img {
+    flex: 40%;
+    margin-right: 10rem;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+
+    align-self: center;
+
+    outline-offset: 2rem;
+    transition: all 0.2s;
+
+    @include responsive(tab-port) {
+      margin: 8rem;
+    }
+
+    @include responsive(phone) {
+      margin: 3rem;
+    }
+
+    &:hover {
+      outline: 1rem solid $indigo;
+      transform: scale(1.05) translateY(-0.5rem);
+      box-shadow: 0 2.5rem 4rem rgba($color-black, 0.5);
+      z-index: 20;
+    }
+  }
+
+  &__details {
+    flex: 60%;
+
+    .list {
+      list-style: none;
+
+      display: flex;
+      flex-direction: column;
+
+      @include responsive(tab-port) {
+        margin: 8rem;
+      }
+
+      @include responsive(phone) {
+        margin: 3rem;
+      }
+
+      &__item {
+        font-size: 2rem;
+
+        @include responsive(tab-port) {
+          font-size: 3rem;
+        }
+
+        @include responsive(phone) {
+          font-size: 2rem;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+
+  .about__img {
+    width: 100%;
+    border-radius: 0.3rem;
+    height: 100%;
+    cursor: pointer;
+  }
+}
+
+///////////////////////////////
+// EDUCATION SECTION
+.education {
+  display: flex;
+  justify-content: space-evenly;
+
+  @include responsive(tab-port) {
+    flex-direction: column;
+  }
+
+  &__box {
+    flex: 30%;
+    background-image: linear-gradient(120deg, $pink-dark 0%, $pink 50%, $pink 50%, $pink-dark 100%);
+    border-radius: 0.5rem;
+    padding: 5rem 2rem;
+    text-align: center;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    color: #fff;
+    box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+
+    &:not(:last-child) {
+      margin-right: 5rem;
+    }
+
+    @include responsive(tab-port) {
+      width: 100%;
+      &:not(:last-child) {
+        margin-right: 0rem;
+        margin-bottom: 8rem;
+      }
+    }
+
+    @include responsive(phone) {
+      margin-right: 0;
+      margin: 0 auto;
+    }
+
+    transition: all 0.4s;
+
+    &:hover {
+      transform: translateY(-1rem);
+      box-shadow: 0 4rem 6rem rgba($color-black, 0.25);
+    }
+  }
+
+  &__icon {
+    width: 6rem;
+    height: 6rem;
+    display: inline-block;
+    fill: $color-white;
+
+    margin-bottom: 0.5rem;
+  }
+
+  &__text {
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 0.3rem;
+
+    &-val {
+      font-size: 2.5rem;
+      font-weight: 400;
+      letter-spacing: 0.2rem;
+    }
+  }
+}
+
+///////////////////////////////
+// SKILLS SECTION
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(3, 25rem);
+  grid-column-gap: 10rem;
+  grid-row-gap: 5rem;
+  justify-items: center;
+  align-items: center;
+
+  &__img {
+    width: 100%;
+  }
+
+  @include responsive(tab-port) {
+    grid-template-columns: repeat(2, 25rem);
+  }
+
+  @include responsive(phone) {
+    grid-template-columns: repeat(1, 25rem);
+  }
+}
+
+///////////////////////////////
+// GITHUB BOX
+
+.github {
+  &__box {
+    display: flex;
+    justify-content: center;
+
+    @include responsive(phone) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  &__btn {
+    position: relative;
+    overflow: hidden;
+
+    @include responsive(phone) {
+      margin: 2rem auto 0;
+    }
+
+    & > * {
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+
+      transition: all 0.2s;
+    }
+
+    &--visible {
+      padding: 0rem 2rem;
+    }
+
+    &--hidden {
+      padding: 2rem 0rem;
+      position: absolute;
+      top: -100%;
+      left: 0;
+    }
+
+    &:hover {
+      transform: translateY(0rem);
+    }
+
+    &:hover &--visible {
+      transform: translateY(110%);
+    }
+
+    &:hover &--hidden {
+      top: -0.5rem;
+    }
+  }
+
+  &__arrow {
+    font-weight: bolder;
+    margin-left: 2rem;
+    display: inline-block;
+    animation: arrowMove 1s linear infinite alternate-reverse;
+  }
+}
+
+@keyframes arrowMove {
+  0% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    transform: translateX(1rem);
+  }
+}
+
+///////////////////////////////
+// WORK EXPERIENCE
+
+.workexp {
+  &__box {
+    width: 75%;
+    margin: 0 auto;
+    background-color: $color-white;
+    box-shadow: 0 3rem 6rem rgba($color-black, 0.1);
+    border-radius: 0.3rem;
+    padding: 6rem;
+    padding-left: 9rem;
+
+    transform: skewX(-15deg);
+
+    @include responsive(phone) {
+      transform: skewX(0deg);
+      display: flex;
+      flex-direction: column;
+      padding: 4rem;
+    }
+
+    @supports (object-fit: cover) or (-webkit-object-fit: cover) {
+      background-color: rgba($color-white, 0.2);
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 10rem;
+    }
+  }
+
+  &__shape {
+    position: relative;
+    width: 15rem;
+    height: 15rem;
+    background-color: $color-black;
+    float: left;
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+
+      border-radius: none;
+    }
+
+    transform: translateX(-3.5rem) translateY(-1rem) skewX(15deg);
+
+    @include responsive(phone) {
+      transform: translateX(0rem) translateY(-1rem) skewX(0deg);
+
+      @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+        -webkit-shape-outside: circle(0);
+        shape-outside: circle(0);
+        border-radius: none;
+      }
+
+      margin: 0 auto 1rem;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    transform: scale(1.01);
+    transition: all 0.5s;
+    backface-visibility: hidden;
+  }
+
+  &__heading {
+    transform: skewX(15deg);
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+
+    @include responsive(phone) {
+      transform: skewX(0deg);
+    }
+
+    &--main {
+      font-size: 2rem;
+      font-weight: 600;
+      display: block;
+    }
+
+    &--sub {
+      font-size: 1.6rem;
+      font-weight: 300;
+      display: block;
+    }
+  }
+
+  &__paragraph {
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    transform: skewX(12deg);
+
+    @include responsive(phone) {
+      transform: skewX(0deg);
+    }
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-black;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bolder;
+    opacity: 0;
+    transition: all 0.5s;
+    backface-visibility: hidden;
+  }
+
+  &__box:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &__box:hover &__img {
+    filter: blur(10px) brightness(80%);
+  }
+}
+
+////////////////////////////////
+// BACKGROUND VIDEO
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.15;
+  overflow: hidden;
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    display: none;
+
+    @supports (object-fit: cover) or (-webkit-object-fit: cover) {
+      object-fit: cover;
+      background-color: none;
+      display: block;
+    }
+  }
+}
+
+////////////////////////////////
+// CONTACT SECTION
+
+.contact {
+  &__box {
+    background-image: linear-gradient(120deg, $pink-dark 0%, $pink 50%, $pink 50%, $pink-dark 100%);
+    border-radius: 0.5rem;
+    padding: 5rem 2rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #fff;
+    box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
+    letter-spacing: 0.3rem;
+
+    @include responsive(tab-port) {
+      font-size: 2rem;
+    }
+
+    & > *:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    transition: all 0.4s;
+
+    &:hover {
+      transform: translateY(-1rem);
+      box-shadow: 0 4rem 6rem rgba($color-black, 0.25);
+    }
+
+    .address,
+    .phone,
+    .email {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__icon {
+    flex: 30%;
+    width: 4rem;
+    height: 4rem;
+    display: inline-block;
+    fill: $color-white;
+  }
+
+  &__paragraph {
+    flex: 70%;
+    align-self: center;
+  }
+}
+
+/////////////////////////
+// SOCIAL LINKS
+
+.social__links {
+  display: flex;
+  justify-content: space-evenly;
+
+  & > * {
+    fill: $color-white;
+  }
+}
+
+.social__icon {
+  width: 5rem;
+  height: 5rem;
+
+  &-facebook {
+    border-radius: 0.5rem;
+    background-color: #3578e5;
+  }
+
+  &-github {
+    border-radius: 0.5rem;
+  }
+
+  &-linkedin {
+    border-radius: 0.5rem;
+    background-color: #0077b5;
+  }
+
+  &-facebook:hover {
+    fill: #3578e5;
+    background-color: $color-white;
+  }
+
+  &-github:hover {
+    fill: #ff4400;
+  }
+
+  &-linkedin:hover {
+    fill: #3578e5;
+    background-color: $color-white;
+  }
+}
+
+///////////////////////////////
+// COPYRIGHT
+
+.copyright {
+  max-width: 80rem;
+  margin: 0 auto;
+  margin-top: 5rem;
+  color: $color-white;
+  font-size: 1.5rem;
+  letter-spacing: 0.2rem;
+
+  border-top: 1px solid $color-white;
+
+  padding-top: 5rem;
+}

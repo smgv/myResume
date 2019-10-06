@@ -1,0 +1,134 @@
+body {
+  font-family: $font-family;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.heading {
+  &__primary {
+    color: $color-white;
+
+    &-main {
+      font-size: 6rem;
+      font-weight: 400;
+      letter-spacing: 0.5rem;
+      display: block;
+      text-transform: uppercase;
+
+      margin-bottom: -1rem;
+
+      @include responsive(tab-land) {
+        font-size: 5rem;
+      }
+
+      @include responsive(tab-port) {
+        font-size: 5.3rem;
+      }
+
+      @include responsive(phone) {
+        font-size: 3.5rem;
+      }
+    }
+
+    &-sub {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2rem;
+      text-transform: uppercase;
+
+      margin-left: 1rem;
+
+      @include responsive(tab-land) {
+        font-size: 2.2rem;
+      }
+
+      @include responsive(tab-port) {
+        font-size: 2.4rem;
+      }
+
+      @include responsive(phone) {
+        font-size: 2.2rem;
+      }
+    }
+  }
+
+  &__secondary {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    @include responsive(tab-port) {
+      font-size: 4rem;
+    }
+
+    &--white {
+      background-image: linear-gradient(to right, rgba($color-white, 0.9), rgba($color-white, 0.9));
+    }
+
+    &--blue {
+      background-image: linear-gradient(to right, rgba($indigo, 0.9), rgba($purple, 0.9));
+    }
+
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.2rem;
+      width: 40%;
+      height: 0.6rem;
+      border-radius: 5rem;
+      background-image: linear-gradient(120deg, $pink-dark 0%, $pink 50%, $pink 50%, $pink-dark 100%);
+      background-size: 225%;
+      transition: width 0.4s;
+    }
+
+    &:hover::before {
+      width: 90%;
+      background-position: 100%;
+    }
+  }
+
+  &__tertiary {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 0.5rem;
+  }
+}
+
+.github__heading {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  font-family: sans-serif;
+  color: $color-white;
+
+  margin-right: 8rem;
+}
+
+.paragraph {
+  color: $color-white;
+
+  &__header {
+    font-size: 2.3rem;
+    font-weight: 400;
+    font-style: italic;
+    margin-top: 2.5rem;
+
+    @include responsive(tab-land) {
+      font-size: 2.1rem;
+    }
+
+    @include responsive(tab-port) {
+      font-size: 2.2rem;
+    }
+
+    @include responsive(phone) {
+      font-size: 2rem;
+    }
+  }
+}

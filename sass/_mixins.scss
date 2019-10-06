@@ -1,0 +1,37 @@
+@mixin flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin responsive($breakpoints) {
+  @if $breakpoints == phone {
+    @media only screen and (max-width: 37.5em) {
+      // 37.5em * 16px -> 600px
+      @content;
+    }
+  }
+
+  @if $breakpoints == tab-port {
+    // 56.25em * 16px -> 900px
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  @if $breakpoints == tab-land {
+    // 75em * 16px -> 1200px
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
+
+  @if $breakpoints == big-desk {
+    // 112.5em * 16px -> 1800px
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
+
+// -> base > typography > general layout - grid > page layout > components
